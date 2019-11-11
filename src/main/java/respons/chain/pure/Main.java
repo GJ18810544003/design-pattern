@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         // 构造责任链
-        GroupLeaderFilter groupLeaderFilter = new GroupLeaderFilter();
-        DeptLeaderFilter deptLeaderFilter = new DeptLeaderFilter();
-        FinalBossFilter finalBossFilter = new FinalBossFilter();
+        Filter groupLeaderFilter = new GroupLeaderFilter();
+        Filter deptLeaderFilter = new DeptLeaderFilter();
+        Filter finalBossFilter = new FinalBossFilter();
         groupLeaderFilter.setNextFilter(deptLeaderFilter);
         deptLeaderFilter.setNextFilter(finalBossFilter);
 
@@ -19,7 +19,5 @@ public class Main {
         System.out.println("开始审批张三的请求");
         groupLeaderFilter.doFilter(request, response);
         System.out.println("张三的请假审批结果：" + response);
-
-
     }
 }

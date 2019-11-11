@@ -3,20 +3,17 @@ package respons.chain.impure;
 public class Main {
 
     public static void main(String[] args) {
-        String msg = "大家好:) 敏感 <script> 被就业 网络授课没感觉";
 
         FilterChain filterChain = new FilterChain();
-        filterChain.add(new SensitiveFilter()).add(new HtmlFilter()).add(new FaceFilter());
+        filterChain.add(new GroupLeaderFilter()).add(new DeptLeaderFilter()).add(new FinalBossFilter());
 
         Request request = new Request();
-        request.setReqestMsg(msg);
-
+        request.setName("张三");
+        request.setGold(100L);
         Response response = new Response();
-        response.setResponseString(msg);
-
         filterChain.doFilter(request, response, filterChain);
 
-        System.out.println(request.getReqestMsg());
-        System.out.println(response.getResponseString());
+        System.out.println(request);
+        System.out.println(response);
     }
 }
