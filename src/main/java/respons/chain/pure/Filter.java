@@ -1,8 +1,6 @@
 package respons.chain.pure;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 纯责任链模式，一个处理者要么处理请求，要么交给下一个处理者
